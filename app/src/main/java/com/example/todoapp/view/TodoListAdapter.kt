@@ -35,7 +35,9 @@ class TodoListAdapter(val todoList: ArrayList<Todo>, val adapterOnClick: (Todo) 
         }
         holder.cbTask.setOnCheckedChangeListener { compoundButton, isChecked ->
             if (isChecked == true) {
+                todoList[position].is_done = 1
                 adapterOnClick(todoList[position])
+                notifyItemChanged(position)
             }
         }
 

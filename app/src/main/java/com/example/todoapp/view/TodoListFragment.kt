@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -37,11 +38,13 @@ class TodoListFragment : Fragment() {
         recViewTodo.adapter = todoListAdapter
 
         val fabAdd = view.findViewById<FloatingActionButton>(R.id.fabAdd)
+        val cbTask = view.findViewById<CheckBox>(R.id.cbTask)
 
         fabAdd.setOnClickListener{
             val action = TodoListFragmentDirections.actionCreateTodo()
             Navigation.findNavController(it).navigate(action)
         }
+
 
         observeViewModel()
     }
